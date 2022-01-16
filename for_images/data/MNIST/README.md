@@ -1,0 +1,1 @@
+Download MNIST dataset from [http://yann.lecun.com/exdb/mnist/](http://yann.lecun.com/exdb/mnist/) (or from other sources) and put the decompressed files `t10k-images-idx3-ubyte`, `t10k-labels-idx1-ubyte`,  `train-images-idx3-ubyte`, and  `train-labels-idx1-ubyte` here.

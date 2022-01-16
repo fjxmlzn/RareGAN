@@ -1,0 +1,42 @@
+[
+    {
+        "args": {
+            "decimal": false, 
+            "name": "src_ip", 
+            "num_bits": 32
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": false, 
+            "name": "dst_ip", 
+            "num_bits": 32
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": false, 
+            "name": "src_port", 
+            "num_bits": 16
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": false, 
+            "name": "dst_port", 
+            "num_bits": 16
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": false, 
+            "name": "proto", 
+            "num_bits": 7
+        }, 
+        "class": "BitField"
+    }
+]

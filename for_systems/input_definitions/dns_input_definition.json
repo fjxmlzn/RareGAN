@@ -1,0 +1,204 @@
+[
+    {
+        "args": {
+            "decimal": true, 
+            "name": "id", 
+            "num_bits": 16
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "choices": [
+                0, 
+                1, 
+                2, 
+                3, 
+                4, 
+                5
+            ], 
+            "length": null, 
+            "name": "opcode"
+        }, 
+        "class": "ChoiceField"
+    }, 
+    {
+        "args": {
+            "name": "qr", 
+            "value": 0
+        }, 
+        "class": "FixedField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "aa", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "tc", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "rd", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "ra", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "z", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "ad", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "cd", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "rcode", 
+            "num_bits": 4
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "choices": [
+                1, 
+                28, 
+                18, 
+                42, 
+                257, 
+                60, 
+                59, 
+                37, 
+                5, 
+                49, 
+                32769, 
+                39, 
+                48, 
+                43, 
+                55, 
+                45, 
+                25, 
+                36, 
+                29, 
+                15, 
+                35, 
+                2, 
+                47, 
+                50, 
+                51, 
+                61, 
+                12, 
+                46, 
+                17, 
+                24, 
+                6, 
+                33, 
+                44, 
+                32768, 
+                249, 
+                52, 
+                250, 
+                16, 
+                256, 
+                255, 
+                252, 
+                251, 
+                41
+            ], 
+            "length": null, 
+            "name": "rdatatype"
+        }, 
+        "class": "ChoiceField"
+    }, 
+    {
+        "args": {
+            "choices": [
+                1, 
+                3, 
+                4, 
+                255
+            ], 
+            "length": null, 
+            "name": "rdataclass"
+        }, 
+        "class": "ChoiceField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "edns", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "dnssec", 
+            "num_bits": 1
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "decimal": true, 
+            "name": "payload", 
+            "num_bits": 16
+        }, 
+        "class": "BitField"
+    }, 
+    {
+        "args": {
+            "choices": [
+                "berkeley.edu", 
+                "energy.gov", 
+                "chase.com", 
+                "aetna.com", 
+                "google.com", 
+                "Nairaland.com", 
+                "Alibaba.com", 
+                "Cambridge.org", 
+                "Alarabiya.net", 
+                "Bnamericas.com"
+            ], 
+            "length": null, 
+            "name": "url"
+        }, 
+        "class": "ChoiceField"
+    }
+]
