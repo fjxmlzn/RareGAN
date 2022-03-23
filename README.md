@@ -1,6 +1,7 @@
 # RareGAN: Generating Samples for Rare Classes
 
 **[[paper (AAAI 2022)](#)]**
+**[[paper (arXiv)](https://arxiv.org/abs/2203.10674)]**
 **[[code](https://github.com/fjxmlzn/RareGAN)]**
 
 
