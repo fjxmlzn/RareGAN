@@ -6,6 +6,13 @@ if float('.'.join(tf.__version__.split('.')[:2])) < 1.15:
     tfgan = tf.contrib.gan
 else:
     import tensorflow_gan as tfgan
+if float('.'.join(tf.__version__.split('.')[:2])) < 2:
+    run_inception_fn = functools.partial(
+        tfgan.eval.run_inception, output_tensor="pool_3:0")
+else:
+    tf = tf.compat.v1
+    def run_inception_fn(tensor): return tfgan.eval.run_inception(tensor)[
+        'pool_3']
 
 
 class Metric(object):
@@ -105,8 +112,7 @@ class FrechetInceptionDistance(Metric):
         generated_images_list = array_ops.split(
             images, num_or_size_splits=1)
         activations = tf.map_fn(
-            fn=functools.partial(tfgan.eval.run_inception,
-                                 output_tensor="pool_3:0"),
+            fn=run_inception_fn,
             elems=array_ops.stack(generated_images_list),
             parallel_iterations=8,
             back_prop=False,

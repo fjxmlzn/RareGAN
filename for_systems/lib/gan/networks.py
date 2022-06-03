@@ -1,4 +1,4 @@
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import os
 
 from .ops import linear, batch_norm, lrelu

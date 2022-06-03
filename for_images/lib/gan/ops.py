@@ -1,5 +1,11 @@
 import tensorflow as tf
 import numpy as np
+if float('.'.join(tf.__version__.split('.')[:2])) >= 2:
+    tf = tf.compat.v1
+    import tf_slim as slim
+    batch_norm_fn = slim.batch_norm
+else:
+    batch_norm_fn = tf.contrib.layers.batch_norm
 
 
 def linear(input_, output_size, scope_name="linear"):
@@ -31,13 +37,13 @@ class batch_norm(object):
             self._name = name
 
     def __call__(self, x, train=True):
-        return tf.contrib.layers.batch_norm(x,
-                                            decay=self._momentum,
-                                            updates_collections=None,
-                                            epsilon=self._epsilon,
-                                            scale=True,
-                                            is_training=train,
-                                            scope=self._name)
+        return batch_norm_fn(x,
+                             decay=self._momentum,
+                             updates_collections=None,
+                             epsilon=self._epsilon,
+                             scale=True,
+                             is_training=train,
+                             scope=self._name)
 
 
 def lrelu(x, leak=0.2, name="lrelu"):
