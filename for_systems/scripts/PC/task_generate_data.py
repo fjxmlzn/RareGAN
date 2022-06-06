@@ -4,7 +4,7 @@ from gpu_task_scheduler.gpu_task import GPUTask
 class Task(GPUTask):
     def main(self):
         import random
-        import tensorflow as tf
+        import tensorflow.compat.v1 as tf
         import os
         import sys
         import numpy as np

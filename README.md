@@ -10,13 +10,15 @@
 **Abstract:** We study the problem of learning generative adversarial networks (GANs) for a rare class of an unlabeled dataset subject to a labeling budget. This problem is motivated from practical applications in domains including security (e.g., synthesizing packets for DNS amplification attacks), systems and networking (e.g., synthesizing workloads that trigger high resource usage), and machine learning (e.g., generating images from a rare class). Existing approaches are unsuitable, either requiring fully-labeled datasets or sacrificing the fidelity of the rare class for that of the common classes. We propose RareGAN, a novel synthesis of three key ideas: (1) extending conditional GANs to use labelled and unlabelled data for better generalization; (2) an active learning approach that requests the most useful labels; and (3) a weighted loss function to favor learning the rare class. We show that RareGAN achieves a better fidelity-diversity tradeoff on the rare class than prior work across different applications, budgets, rare class fractions, GAN losses, and architectures.
 
 ---
-This repo contains the codes for reproducing the experiments of our RareGAN in the paper. The codes were tested under Python 3.6.9, TensorFlow 1.15.2.
+This repo contains the codes for reproducing the experiments of our RareGAN in the paper. The codes were tested under Python 3.6.9 + TensorFlow 1.15.2 and Python 3.7.13 + TensorFlow 2.8.2.
 
 The code can be easily extended to your own applications, like [synthesizing images from rare classes](#extend-image), or [synthesizing data of more general formats (e.g., network packets, texts) for rare events (e.g., attacks)](#extend-network).
 
 ## Prerequisites
 
 The codes are based on [GPUTaskScheduler](https://github.com/fjxmlzn/GPUTaskScheduler) library, which helps you automatically schedule the jobs among GPU nodes. Please install it first. You may need to change GPU configurations according to the devices you have. The configurations are set in `config_generate_data.py` in each directory. Please refer to [GPUTaskScheduler's GitHub page](https://github.com/fjxmlzn/GPUTaskScheduler) for the details of how to make proper configurations.
+
+To run with TensorFlow 2, please install [TensorFlow-Slim](https://github.com/google-research/tf-slim) by `pip install tf-slim`.
 
 ## Image Experiments: Generating Rare Samples for CIFAR10 and MNIST
 
