@@ -75,22 +75,20 @@ class ConditionalGenerator(Network):
                                 num_classes = 2
                             else:
                                 num_classes = len(field.choices)
-                            for bit in range(field.numpy_dim):
-                                with tf.variable_scope("bit{}".format(bit)):
-                                    class_layers.append(
-                                        linear(layers[-1], num_classes))
-                                    softmax_layers.append(
-                                        tf.nn.softmax(class_layers[-1]))
+                            class_layers.append(linear(
+                                layers[-1], num_classes * field.numpy_dim))
+                            class_layers.append(tf.reshape(
+                                class_layers[-1],
+                                [-1, field.numpy_dim, num_classes]))
+                            softmax = tf.nn.softmax(class_layers[-1], axis=2)
+                            softmax_layers.append(tf.reshape(
+                                softmax,
+                                [-1, num_classes * field.numpy_dim]))
+                            sample = tf.argmax(class_layers[-1], axis=2)
+                            prob = tf.reduce_max(softmax, axis=2)
 
-                                    sample = tf.argmax(
-                                        softmax_layers[-1], axis=1)
-                                    sample = tf.expand_dims(sample, 1)
-                                    prob = tf.reduce_max(
-                                        softmax_layers[-1], axis=1)
-                                    prob = tf.expand_dims(prob, 1)
-
-                                    samples.append(sample)
-                                    probs.append(prob)
+                            samples.append(sample)
+                            probs.append(prob)
                         elif isinstance(field, FixedField):
                             print("Skipping field {}".format(field.name))
                         else:
